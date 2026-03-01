@@ -1,0 +1,12 @@
+/* ─── DARK THEME VARIABLES ─── */
+/* Applied when <html data-theme="dark"> is set by main.js */
+
+[data-theme="dark"] {
+  --bg: #111210;
+  --text: #e8e4df;
+  --accent: #6fa3b5;
+  --muted: #6b6860;
+  --line: rgba(232,228,223,0.1);
+  --nav-scrolled-bg: rgba(17,18,16,0.95);
+  --card-hover-bg: rgba(111,163,181,0.07);
+}
