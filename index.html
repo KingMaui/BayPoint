@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bay Point</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script src="java/main.js"></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a class="nav-logo" href="#home">Bay Point</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <span class="icon">☾</span>
+      <span class="label">Dark</span>
+    </button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home"     onclick="closeMenu()">Home</a>
+  <a href="#about"    onclick="closeMenu()">About</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#contact"  onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <p class="hero-eyebrow">Welcome to Bay Point</p>
+  <h1 class="hero-title">Where Ideas<br>Meet the <em>Water</em></h1>
+  <p class="hero-sub">A studio shaped by clarity, craft, and the quiet confidence of good work done well.</p>
+  <a class="hero-cta" href="#about">Discover More</a>
+  <div class="hero-line">
+    <span>Scroll</span>
+    <div class="scroll-bar"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <p class="section-label">About</p>
+      <h2 class="section-title">Built on the belief that less, done beautifully, is more.</h2>
+      <p class="section-body">Bay Point is a boutique creative studio dedicated to thoughtful design, clean systems, and purposeful experiences. We work with clients who value intention over noise.</p>
+    </div>
+    <div>
+      <div class="about-stat-group">
+        <div class="stat">
+          <div class="stat-number">12+</div>
+          <div class="stat-label">Years of craft</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">80+</div>
+          <div class="stat-label">Projects delivered</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Core disciplines</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Committed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-label">Services</p>
+  <h2 class="section-title">What we do</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-name">Brand Identity</div>
+      <p class="service-desc">Logos, visual systems, and the language of a brand — crafted to be timeless.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-name">Web Design</div>
+      <p class="service-desc">Minimal, fast, and memorable digital experiences built with precision.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-name">Strategy</div>
+      <p class="service-desc">Positioning, messaging, and direction to help your work find its audience.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Contact</p>
+  <h2 class="section-title">Let's work together</h2>
+  <p class="section-body">Have a project in mind? We'd love to hear from you. Reach out and let's start a conversation.</p>
+  <a class="contact-email" href="mailto:hello@baypointweb.com">hello@baypointweb.com</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Bay Point. All rights reserved.</span>
+  <span>baypointweb.com</span>
+</footer>
+
+</body>
+</html>
