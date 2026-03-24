@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bay Point</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/styles.css"/>
   <link rel="stylesheet" href="css/dark.css"/>
 </head>
 <body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">Bay Point</div>
+    <div class="loader-bar-track"><div class="loader-bar-fill"></div></div>
+    <div class="loader-counter"><span id="loaderCount">0</span>%</div>
+  </div>
+</div>
 
 <!-- NAVBAR -->
 <nav id="navbar">
@@ -41,7 +50,7 @@
 <!-- HERO -->
 <section id="home">
   <p class="hero-eyebrow">Welcome to Bay Point</p>
-  <h1 class="hero-title">Where Ideas<br>Meet <em>Water</em></h1>
+  <h1 class="hero-title">Where Ideas<br>Meet <em><span class="water-word">Water</span></em></h1>
   <p class="hero-sub">A technology collective shaping creative ideas into intelligent infrastructure.</p>
   <a class="hero-cta" href="#about">Discover More</a>
   <div class="hero-line">
