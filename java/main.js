@@ -1,29 +1,40 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   // ─── LOADER ───
+  // Only runs once per browser session — skipped on back navigation
   const loader = document.getElementById('loader');
   const fill   = document.querySelector('.loader-bar-fill');
   const count  = document.getElementById('loaderCount');
 
   if (loader && fill && count) {
-    let progress = 0;
+    const alreadyLoaded = sessionStorage.getItem('bp-loaded');
 
-    const timer = setInterval(function () {
-      const remaining = 100 - progress;
-      const increment = Math.max(0.4, remaining * 0.055);
-      progress = Math.min(100, progress + increment);
+    if (alreadyLoaded) {
+      // Skip loader instantly — user navigated back
+      loader.classList.add('hidden');
+      document.body.classList.add('page-ready');
+    } else {
+      // First visit this session — run the loader
+      sessionStorage.setItem('bp-loaded', '1');
+      let progress = 0;
 
-      fill.style.width  = progress + '%';
-      count.textContent = Math.floor(progress);
+      const timer = setInterval(function () {
+        const remaining = 100 - progress;
+        const increment = Math.max(0.4, remaining * 0.055);
+        progress = Math.min(100, progress + increment);
 
-      if (progress >= 100) {
-        clearInterval(timer);
-        setTimeout(function () {
-          loader.classList.add('hidden');
-          document.body.classList.add('page-ready');
-        }, 300);
-      }
-    }, 30);
+        fill.style.width  = progress + '%';
+        count.textContent = Math.floor(progress);
+
+        if (progress >= 100) {
+          clearInterval(timer);
+          setTimeout(function () {
+            loader.classList.add('hidden');
+            document.body.classList.add('page-ready');
+          }, 300);
+        }
+      }, 30);
+    }
   }
 
   // ─── DARK MODE TOGGLE ───
@@ -70,8 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (hamburger)  hamburger.classList.remove('open');
     if (mobileMenu) mobileMenu.classList.remove('open');
     document.body.style.overflow = '';
-    const msi = document.getElementById('mobileServicesItem');
-    if (msi) msi.classList.remove('open');
   };
 
   // ─── DESKTOP SERVICES DROPDOWN ───
