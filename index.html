@@ -26,7 +26,14 @@
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
+      <li class="nav-dropdown">
+        <a href="#services" class="nav-dropdown-trigger">Services <span class="dropdown-caret">&#8964;</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#services">Website Design</a></li>
+          <li><a href="#services">Software Development</a></li>
+          <li><a href="#services">Data &amp; Systems Engineering</a></li>
+        </ul>
+      </li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -44,6 +51,11 @@
   <a href="#home"     onclick="closeMenu()">Home</a>
   <a href="#about"    onclick="closeMenu()">About</a>
   <a href="#services" onclick="closeMenu()">Services</a>
+  <div class="mobile-sub-links">
+    <a href="#services" onclick="closeMenu()">Website Design</a>
+    <a href="#services" onclick="closeMenu()">Software Development</a>
+    <a href="#services" onclick="closeMenu()">Data &amp; Systems Engineering</a>
+  </div>
   <a href="#contact"  onclick="closeMenu()">Contact</a>
 </div>
 
@@ -117,15 +129,9 @@
   <p class="section-label">Contact</p>
   <h2 class="section-title">Let's work together</h2>
   <p class="section-body">Have a project in mind? We'd love to hear from you. Reach out and let's start a conversation.</p>
-  <a class="contact-email" href="mailto:baypointweb@gmail.com">Baypointweb@gmail.com</a>
+  <a class="contact-email" href="/cdn-cgi/l/email-protection#1270736b627d7b7c6665777052757f737b7e3c717d7f"><span class="__cf_email__" data-cfemail="e8aa8991988781869c9f8d8aa88f85898184c68b8785">[email&#160;protected]</span></a>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span>© 2026 Bay Point. All rights reserved.</span>
-  <span>baypointweb.com</span>
-</footer>
-
-<script src="java/main.js"></script>
-</body>
-</html>
+  <span>© 
