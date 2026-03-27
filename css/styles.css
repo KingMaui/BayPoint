@@ -521,6 +521,180 @@ footer span {
   50%       { opacity: 1; }
 }
 
+/* ─── SERVICES DROPDOWN ─── */
+.nav-item-services {
+  position: relative;
+}
+
+.nav-services-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.25s;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: 'Jost', sans-serif;
+}
+.nav-services-toggle::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.nav-services-toggle:hover { color: var(--text); }
+.nav-services-toggle:hover::after { width: 100%; }
+
+.nav-chevron {
+  width: 8px; height: 8px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.nav-item-services.open .nav-chevron {
+  transform: rotate(-135deg) translateY(-2px);
+}
+
+.services-dropdown {
+  position: absolute;
+  top: calc(100% + 1.2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--nav-bg);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(16px);
+  min-width: 220px;
+  padding: 0.6rem 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-6px);
+  transition: opacity 0.22s, transform 0.22s;
+}
+.nav-item-services.open .services-dropdown {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
+
+.services-dropdown a {
+  display: block;
+  padding: 0.7rem 1.4rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+  position: relative;
+}
+.services-dropdown a::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transition: transform 0.2s;
+}
+.services-dropdown a:hover {
+  color: var(--text);
+  background: var(--card-hover-bg);
+}
+.services-dropdown a:hover::before { transform: scaleY(1); }
+
+/* ─── MOBILE SERVICES SUB-MENU ─── */
+.mobile-services-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.mobile-services-btn {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.6rem;
+  font-weight: 300;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0;
+}
+.mobile-services-btn:hover { color: var(--accent); }
+
+.mobile-chevron {
+  width: 12px; height: 12px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-3px);
+  transition: transform 0.25s;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.mobile-services-item.open .mobile-chevron {
+  transform: rotate(-135deg) translateY(-3px);
+}
+
+.mobile-sub-links {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+  overflow: hidden;
+  margin-top: 0;
+}
+.mobile-services-item.open .mobile-sub-links {
+  grid-template-rows: 1fr;
+  margin-top: 0.8rem;
+}
+.mobile-sub-links-inner {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+.mobile-sub-links a {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim) !important;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.mobile-sub-links a::before {
+  content: '—';
+  font-size: 0.55rem;
+  color: var(--accent);
+  letter-spacing: 0;
+}
+.mobile-sub-links a:hover { color: var(--accent) !important; }
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   nav { padding: 1.4rem 1.8rem; }

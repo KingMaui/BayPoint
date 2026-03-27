@@ -68,4 +68,53 @@ function closeMenu() {
   hamburger.classList.remove('open');
   mobileMenu.classList.remove('open');
   document.body.style.overflow = '';
+  const msi = document.getElementById('mobileServicesItem');
+  if (msi) msi.classList.remove('open');
+}
+
+// ─── DESKTOP SERVICES DROPDOWN ───
+const servicesNavItem = document.getElementById('servicesNavItem');
+const servicesToggle  = document.getElementById('servicesToggle');
+
+if (servicesToggle && servicesNavItem) {
+  servicesToggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    const isOpen = servicesNavItem.classList.toggle('open');
+    servicesToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  servicesNavItem.querySelectorAll('.services-dropdown a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      servicesNavItem.classList.remove('open');
+      servicesToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!servicesNavItem.contains(e.target)) {
+      servicesNavItem.classList.remove('open');
+      servicesToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      servicesNavItem.classList.remove('open');
+      servicesToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+// ─── MOBILE SERVICES SUB-MENU ───
+const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+const mobileServicesItem   = document.getElementById('mobileServicesItem');
+
+if (mobileServicesToggle && mobileServicesItem) {
+  mobileServicesToggle.addEventListener('click', function () {
+    mobileServicesItem.classList.toggle('open');
+  });
+}
+
+function scrollToService() {
+  if (servicesNavItem) servicesNavItem.classList.remove('open');
 }
