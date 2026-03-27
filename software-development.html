@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Software Development — Bay Point</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/dark.css"/>
+  <style>
+    .service-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 6rem 3.5rem 6rem;
+      position: relative;
+      background: var(--bg);
+      overflow: hidden;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .service-page::after {
+      content: '02';
+      position: absolute;
+      bottom: -0.1em;
+      right: -0.02em;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(10rem, 22vw, 26rem);
+      font-weight: 600;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(77,184,176,0.05);
+      line-height: 1;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .service-page > * { position: relative; z-index: 1; }
+    .service-page-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.1s forwards;
+    }
+    .service-page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 9vw, 8.5rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      opacity: 0;
+      animation: fadeUp 0.9s 0.3s forwards;
+    }
+    .service-back {
+      margin-top: 3.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      font-weight: 500;
+      border: 1px solid var(--line);
+      padding: 0.9rem 2rem;
+      transition: color 0.2s, border-color 0.2s, gap 0.3s;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.5s forwards;
+    }
+    .service-back::before { content: '←'; transition: transform 0.3s; }
+    .service-back:hover { color: var(--accent); border-color: var(--accent); gap: 1.4rem; }
+    .service-back:hover::before { transform: translateX(-4px); }
+    @media (max-width: 768px) {
+      .service-page { padding: 0 1.8rem 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">Bay Point</div>
+    <div class="loader-bar-track"><div class="loader-bar-fill"></div></div>
+    <div class="loader-counter"><span id="loaderCount">0</span>%</div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">Bay Point</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services" class="active">Services</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <span class="t-icon" id="themeIcon">☾</span>
+      <span class="t-label" id="themeLabel">Dark</span>
+    </button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#home"     onclick="closeMenu()">Home</a>
+  <a href="index.html#about"    onclick="closeMenu()">About</a>
+  <a href="index.html#services" onclick="closeMenu()">Services</a>
+  <a href="index.html#contact"  onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- PAGE CONTENT -->
+<div class="service-page">
+  <p class="service-page-label">Services / 02</p>
+  <h1 class="service-page-title">Software<br><em>Development</em></h1>
+  <a class="service-back" href="index.html#services">Back to Services</a>
+</div>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Bay Point. All rights reserved.</span>
+  <span>baypointweb.com</span>
+</footer>
+
+<script src="java/main.js"></script>
+</body>
+</html>
