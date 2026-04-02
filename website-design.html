@@ -76,7 +76,7 @@
       border-left: 1px solid var(--line);
     }
 
-    /* Featured card — spans 2 columns */
+    /* Cards */
     .project-card {
       border-bottom: 1px solid var(--line);
       border-right: 1px solid var(--line);
@@ -99,13 +99,12 @@
     }
     .project-card:hover { background: var(--card-hover-bg); }
     .project-card:hover::before { height: 100%; }
+    a.project-card { cursor: pointer; text-decoration: none; color: inherit; }
 
-    .project-card.featured { grid-column: span 2; }
-
-    /* Image placeholder */
+    /* Image area */
     .project-img {
       width: 100%;
-      aspect-ratio: 16/9;
+      aspect-ratio: 4/3;
       background: var(--bg-2);
       display: flex;
       align-items: center;
@@ -114,8 +113,14 @@
       position: relative;
       overflow: hidden;
     }
-    .project-card.featured .project-img { aspect-ratio: 21/9; }
-    .project-card.tall .project-img { aspect-ratio: 4/3; }
+    .project-img iframe {
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: top left;
+      border: none;
+      pointer-events: none;
+    }
 
     .project-img-placeholder {
       display: flex;
@@ -222,13 +227,11 @@
 
     @media (max-width: 900px) {
       .projects-grid { grid-template-columns: 1fr 1fr; }
-      .project-card.featured { grid-column: span 2; }
     }
     @media (max-width: 600px) {
       .svc-header { flex-direction: column; align-items: flex-start; padding: 7rem 1.8rem 3rem; }
       .projects-section { padding: 0 1.8rem 5rem; }
       .projects-grid { grid-template-columns: 1fr; }
-      .project-card.featured { grid-column: span 1; }
     }
   </style>
 </head>
@@ -277,21 +280,15 @@
 <div class="projects-section">
   <div class="projects-grid">
 
-    <!-- Featured project -->
-    <div class="project-card featured">
+    <!-- Project 1 — Real Estate Portfolio -->
+    <a class="project-card" href="https://lobster-app-d3hqa.ondigitalocean.app" target="_blank" rel="noopener">
       <div class="project-img">
         <span class="project-tag">Featured</span>
-        <div class="project-img-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span>Project image</span>
-        </div>
+        <iframe src="https://lobster-app-d3hqa.ondigitalocean.app" title="Real Estate Portfolio preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
       </div>
       <div class="project-body">
         <div class="project-num">01</div>
-        <div class="project-name">Real Estates Profolio</div>
+        <div class="project-name">Real Estate Portfolio</div>
         <p class="project-desc">Showcase properties on a dynamic map, with simple tools to add or remove listings.</p>
         <div class="project-meta">
           <div class="project-meta-item">
@@ -308,23 +305,17 @@
           </div>
         </div>
       </div>
-    </div>
+    </a>
 
-    <!-- Project 2 -->
-    <div class="project-card tall">
+    <!-- Project 2 — Weekend Birdie -->
+    <a class="project-card" href="https://weekendbirdie.com/" target="_blank" rel="noopener">
       <div class="project-img">
-        <div class="project-img-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span>Project image</span>
-        </div>
+        <iframe src="https://weekendbirdie.com/" title="Weekend Birdie preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
       </div>
       <div class="project-body">
         <div class="project-num">02</div>
-        <div class="project-name">Project Name</div>
-        <p class="project-desc">Short description of the project goes here.</p>
+        <div class="project-name">Weekend Birdie</div>
+        <p class="project-desc">Golf handicap tracker built for Bay Area courses, with scorecard entry and live stats.</p>
         <div class="project-meta">
           <div class="project-meta-item">
             <span class="meta-label">Type</span>
@@ -336,7 +327,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </a>
 
     <!-- Project 3 -->
     <div class="project-card">
