@@ -1,338 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weekend Birdie</title>
-  <meta name="description" content="Your official golf handicap index, course map, and scorecard — all in one place. Free for every golfer.">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bay Point</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/dark.css"/>
 </head>
 <body>
 
-  <!-- ── NAVIGATION ─────────────────────────────────── -->
-  <nav id="main-nav">
-    <a href="#home" class="nav-logo">
-      <div class="nav-logo-mark">
-        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="10" cy="14" r="4" fill="white"/>
-          <rect x="9.2" y="1.5" width="1.6" height="10" rx="0.8" fill="white"/>
-          <path d="M10.8 2 L17 5.8 L10.8 9.6 Z" fill="white" opacity="0.75"/>
-        </svg>
-      </div>
-      <span class="nav-logo-text">Weekend Birdie</span>
-    </a>
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">Bay Point</div>
+    <div class="loader-bar-track"><div class="loader-bar-fill"></div></div>
+    <div class="loader-counter"><span id="loaderCount">0</span>%</div>
+  </div>
+</div>
 
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a class="nav-logo" href="#home">Bay Point</a>
+  <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="#how-it-works">How it works</a></li>
-      <li><a href="courses.html">Course map</a></li>
-      <li><a href="scorecard.html">My Stats</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <span class="t-icon" id="themeIcon">☾</span>
+      <span class="t-label" id="themeLabel">Dark</span>
+    </button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-    <div class="nav-right">
-      <a href="#" class="btn-login"  id="btn-login-nav"  onclick="openModal(event)">Log in</a>
-      <a href="#" class="btn-signup" id="btn-signup-nav" onclick="openModal(event, 'signup')">Get started</a>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home"     onclick="closeMenu()">Home</a>
+  <a href="#about"    onclick="closeMenu()">About</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#contact"  onclick="closeMenu()">Contact</a>
+</div>
 
-      <!-- Profile avatar — visible when logged in -->
-      <div class="profile-avatar" id="profile-avatar" onclick="toggleProfileDropdown()">
-        <span id="avatar-initials"></span>
-        <div class="profile-dropdown" id="profile-dropdown">
-          <a href="#">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <circle cx="7" cy="5" r="2.5" stroke="currentColor" stroke-width="1.2"/>
-              <path d="M2.5 12c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-            </svg>
-            My profile
-          </a>
-          <a href="scorecard.html">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <rect x="2" y="3" width="10" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
-              <path d="M5 3V2.5a2 2 0 014 0V3" stroke="currentColor" stroke-width="1.2"/>
-            </svg>
-            My scorecards
-          </a>
-          <a href="scorecard.html?tab=new-round">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-            </svg>
-            New round
-          </a>
-          <div class="dd-divider"></div>
-          <a href="#" class="logout" onclick="logout()">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M9 2h2.5a.5.5 0 01.5.5v9a.5.5 0 01-.5.5H9M6 4.5L3.5 7 6 9.5M3.5 7H10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Log out
-          </a>
-        </div>
+<!-- HERO -->
+<section id="home">
+  <p class="hero-eyebrow">Welcome to Bay Point</p>
+  <h1 class="hero-title">Turning Flow<br>Into <em><span class="water-word">Intelligence</span></em></h1>
+  <p class="hero-sub">From creative spark to intelligent infrastructure, Building the conduits that let your ideas flow.</p>
+  <a class="hero-cta" href="#about">Discover More</a>
+  <div class="hero-line">
+    <span>Scroll</span>
+    <div class="scroll-bar"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <p class="section-label">About</p>
+      <h2 class="section-title">Ideas That Drive Real Impact</h2>
+      <p class="section-body">Build the digital backbone of the modern enterprise. From high-performance web experiences and ERP implementation to seamless systems integration and data management, we replace legacy friction with operational speed.</p>
+      <br>
+      <p class="section-body">The market isn't waiting for anyone. As AI continues to redefine the ceiling for efficiency, relying on outdated infrastructure is a choice to lose ground. We close the gap between where you are and where the market is going, delivering the agility you need with the precision you demand.</p>
+      <br>
+      <br>
+      <p class="section-body">Don't just keep up. Set the pace.</p>
+    </div>
+    <div>
+      <div class="about-stat-group">
+        <div class="stat"><div class="stat-number">5+</div><div class="stat-label">Years of craft</div></div>
+        <div class="stat"><div class="stat-number">8</div><div class="stat-label">Projects delivered</div></div>
+        <div class="stat"><div class="stat-number">3</div><div class="stat-label">Core disciplines</div></div>
+        <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Committed</div></div>
       </div>
-    </div>
-  </nav>
-
-
-  <!-- ── HERO ───────────────────────────────────────── -->
-  <section class="hero" id="home">
-    <div class="hero-bg"></div>
-    <!-- To use a real photo, add this to .hero-bg in styles.css:
-         background-image: url('img/hero.jpg'); background-size: cover; -->
-    <div class="hero-content">
-      <div class="hero-eyebrow">World Handicap System</div>
-      <h1 class="hero-title">Play better.<br>Track every round.</h1>
-      <p class="hero-sub">Your golf handicap index, course map, and scorecard — all in one place. Free for every golfer.</p>
-      <div class="hero-cta">
-        <a href="#" class="cta-primary" onclick="openModal(event, 'signup')">Start tracking free</a>
-        <a href="#how-it-works" class="cta-ghost">See how it works</a>
-      </div>
-    </div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-
-  <!-- ── STATS STRIP ────────────────────────────────── -->
-  <div class="stats-strip">
-    <div class="stat-item">
-      <div class="stat-num">50+</div>
-      <div class="stat-label">Courses</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">WHS</div>
-      <div class="stat-label">Handicap formula</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">Auto</div>
-      <div class="stat-label">Score tracking</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">Free</div>
-      <div class="stat-label">Now</div>
     </div>
   </div>
+</section>
 
+<div class="divider"></div>
 
-  <!-- ── HOW IT WORKS ───────────────────────────────── -->
-  <section class="how-it-works" id="how-it-works">
-    <div style="max-width:1100px; margin:0 auto;">
-      <div class="section-tag">How it works</div>
-      <h2 class="section-title">Simple as a tap-in.</h2>
-      <div class="steps-grid">
-
-        <div class="step-card">
-          <div class="step-num">01</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 22 22" fill="none">
-              <circle cx="11" cy="11" r="8" stroke="#3B6D11" stroke-width="1.5"/>
-              <path d="M11 7v4l3 2" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="step-title">Pick your course</div>
-          <p class="step-desc">Search from courses across California — with slope rating and course rating pre-loaded for accurate score differentials.</p>
-        </div>
-
-        <div class="step-card">
-          <div class="step-num">02</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 22 22" fill="none">
-              <rect x="3" y="3" width="16" height="16" rx="3" stroke="#3B6D11" stroke-width="1.5"/>
-              <path d="M7 11h8M7 7h4M7 15h6" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="step-title">Enter your scorecard</div>
-          <p class="step-desc">Hole by hole, 9 or 18. Each score color-codes as you type — birdie green, bogey amber, double-bogey red.</p>
-        </div>
-
-        <div class="step-card">
-          <div class="step-num">03</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 22 22" fill="none">
-              <path d="M4 16l5-5 4 3 5-7" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="17" cy="5" r="2" fill="#3B6D11"/>
-            </svg>
-          </div>
-          <div class="step-title">Watch your index update</div>
-          <p class="step-desc">Your WHS handicap index recalculates instantly using the best differentials from your round history. No spreadsheets needed.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ── COURSE MAP ─────────────────────────────────── -->
-  <section class="map-section" id="courses">
-    <div class="map-inner">
-      <div class="map-copy">
-        <div class="section-tag">Course map</div>
-        <h2 class="section-title" style="color:white;">Every course,<br>on the map.</h2>
-        <p>Find and select any course directly from an interactive world map. California is live now — more states and countries on the way.</p>
-        <div class="map-states">
-          <div class="state-chip active">California ✓</div>
-          <div class="state-chip coming">Nevada</div>
-          <div class="state-chip coming">Arizona</div>
-          <div class="state-chip coming">Oregon</div>
-          <div class="state-chip coming">Florida</div>
-          <div class="state-chip coming">New York</div>
-          <div class="state-chip coming">UK</div>
-          <div class="state-chip coming">Ireland</div>
-          <div class="state-chip coming">Japan</div>
-        </div>
-        <a href="courses.html" class="cta-primary" style="display:inline-block; margin-top:28px; background:var(--gold); color:var(--green-deep);">Explore the course map</a>
-      </div>
-
-      <!-- World map rendered by D3 in main.js -->
-      <div class="world-map-wrap" id="world-map-container" style="height:340px; position:relative;">
-        <svg id="world-map-svg" width="100%" height="340"></svg>
-        <div id="map-tooltip" style="position:absolute; display:none; background:rgba(26,58,15,0.92); border:0.5px solid rgba(201,168,76,0.4); border-radius:8px; padding:8px 12px; font-size:12px; color:white; pointer-events:none; max-width:160px; z-index:10;"></div>
-        <div class="map-footer-label">Green = live · Gold = coming soon · <a href="courses.html" style="color:var(--gold-light); text-decoration:none;">Open full map →</a></div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ── MY STATS ───────────────────────────────────── -->
-  <section class="status-section" id="my-stats">
-    <div class="status-inner">
-      <div>
-        <div class="section-tag">My stats</div>
-        <h2 class="section-title">Your whole game,<br>at a glance.</h2>
-        <p style="font-size:15px; color:var(--text-muted); line-height:1.8; margin-top:20px; max-width:380px; font-weight:300;">
-          Track your handicap trend, scoring averages by course, and full round history — all visible from your personal dashboard the moment you log in.
-        </p>
-        <a href="#" class="cta-primary" style="display:inline-block; margin-top:28px;" onclick="openModal(event,'signup')">Create free account</a>
-      </div>
-
-      <!-- Mock dashboard preview -->
-      <div class="mock-dashboard">
-        <div class="mock-topbar">
-          <div style="display:flex; align-items:center; gap:10px;">
-            <div class="mock-avatar">IW</div>
-            <div>
-              <div class="mock-name">Ivan W.</div>
-              <div class="mock-sub">Member since 2026</div>
-            </div>
-          </div>
-          <div>
-            <div class="mock-hcp-label">Handicap index</div>
-            <div class="mock-hcp-val">12.4</div>
-          </div>
-        </div>
-        <div class="mock-stats-row">
-          <div class="mock-stat"><div class="mock-stat-val">24</div><div class="mock-stat-lbl">Rounds</div></div>
-          <div class="mock-stat"><div class="mock-stat-val">86.2</div><div class="mock-stat-lbl">Avg score</div></div>
-          <div class="mock-stat"><div class="mock-stat-val">+14</div><div class="mock-stat-lbl">Avg to par</div></div>
-        </div>
-        <div style="font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-muted); margin-bottom:8px;">Recent rounds</div>
-        <div class="mock-round-row">
-          <div><div class="mock-round-course">Pebble Beach Golf Links</div><div class="mock-round-meta">Jun 12 · Blue tees · 18 holes</div></div>
-          <div><div class="mock-round-score">88 <span style="font-size:11px;color:#639922">+16</span></div><div class="mock-round-diff">Diff 14.2</div></div>
-        </div>
-        <div class="mock-round-row">
-          <div><div class="mock-round-course">Torrey Pines (South)</div><div class="mock-round-meta">Jun 5 · White tees · 18 holes</div></div>
-          <div><div class="mock-round-score">84 <span style="font-size:11px;color:#639922">+12</span></div><div class="mock-round-diff">Diff 11.8</div></div>
-        </div>
-        <div class="mock-round-row">
-          <div><div class="mock-round-course">Harding Park GC</div><div class="mock-round-meta">May 28 · White tees · 18 holes</div></div>
-          <div><div class="mock-round-score">82 <span style="font-size:11px;color:#639922">+10</span></div><div class="mock-round-diff">Diff 10.1</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div class="footer-top">
-      <div>
-        <div class="footer-logo">Weekend <span>Birdie</span></div>
-        <div class="footer-tagline">Track your handicap. Own your game.</div>
-      </div>
-      <div class="footer-links">
-        <a href="#how-it-works">How it works</a>
-        <a href="courses.html">Course map</a>
-        <a href="#my-stats">My stats</a>
-        <a href="#">Privacy</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2025 Weekend Birdie. All rights reserved.</span>
-      <span class="footer-domain">weekendbirdie.com</span>
-    </div>
-  </footer>
-
-
-  <!-- ── LOGIN / SIGNUP MODAL ───────────────────────── -->
-  <div class="modal-overlay" id="modal-overlay">
-    <div class="modal" id="modal">
-      <button class="modal-close" onclick="closeModal()">&#10005;</button>
-
-      <div class="modal-logo">
-        <div class="modal-logo-mark">
-          <svg viewBox="0 0 20 20" fill="none">
-            <circle cx="10" cy="14" r="4" fill="white"/>
-            <rect x="9.2" y="1.5" width="1.6" height="10" rx="0.8" fill="white"/>
-            <path d="M10.8 2 L17 5.8 L10.8 9.6 Z" fill="white" opacity="0.75"/>
-          </svg>
-        </div>
-        <span>Weekend Birdie</span>
-      </div>
-
-      <div class="modal-tabs">
-        <button class="modal-tab active" id="tab-login"  onclick="switchTab('login')">Log in</button>
-        <button class="modal-tab"        id="tab-signup" onclick="switchTab('signup')">Sign up</button>
-      </div>
-
-      <!-- Login form -->
-      <div id="login-form">
-        <div class="modal-field">
-          <label>Email</label>
-          <input type="email" id="login-email">
-        </div>
-        <div class="modal-field">
-          <label>Password</label>
-          <input type="password" id="login-pass">
-        </div>
-        <button class="modal-btn" onclick="doLogin()">Log in</button>
-        <div class="modal-footer-note">Forgot your password? <a href="#">Reset it</a></div>
-      </div>
-
-      <!-- Signup form -->
-      <div id="signup-form" style="display:none;">
-        <div class="modal-grid-2">
-          <div class="modal-field">
-            <label>First name</label>
-            <input type="text" id="signup-first" placeholder="Tiger">
-          </div>
-          <div class="modal-field">
-            <label>Last name</label>
-            <input type="text" id="signup-last" placeholder="W.">
-          </div>
-        </div>
-        <div class="modal-field">
-          <label>Email</label>
-          <input type="email" id="signup-email" placeholder="you@example.com">
-        </div>
-        <div class="modal-field">
-          <label>Password</label>
-          <input type="password" id="signup-pass" placeholder="Min. 8 characters">
-        </div>
-        <button class="modal-btn" onclick="doSignup()">Create account</button>
-        <div class="modal-footer-note">Already have an account? <a href="#" onclick="switchTab('login'); return false;">Log in</a></div>
-      </div>
-
-    </div>
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-label">Services</p>
+  <h2 class="section-title">What we do</h2>
+  <div class="services-grid">
+    <a class="service-card" href="website-design.html">
+      <div class="service-num">01</div>
+      <div class="service-name">Web Design</div>
+      <p class="service-desc">Designing modern websites, including landing pages, dashboards, portfolio showcases, and web applications with api tokens</p>
+    </a>
+    <a class="service-card" href="software-development.html">
+      <div class="service-num">02</div>
+      <div class="service-name">Software Development</div>
+      <p class="service-desc">Building intelligent tools for accounting and finance, including OCR document extraction, automation workflows, and data processing systems.</p>
+    </a>
+    <a class="service-card" href="data-systems-engineering.html">
+      <div class="service-num">03</div>
+      <div class="service-name">Data & Systems Engineering</div>
+      <p class="service-desc">ERP implementation, database architecture, open datalake house/warehouse, structured data management built for scalability and accuracy.</p>
+    </a>
   </div>
+</section>
 
-  <!-- ── SCRIPTS ────────────────────────────────────── -->
-  <!-- D3 + TopoJSON for the world map -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
-  <!-- App logic -->
-  <script src="js/main.js"></script>
-  <script src="js/pb.js"></script>
-  
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Contact</p>
+  <h2 class="section-title">Let's work together</h2>
+  <p class="section-body">Have a project in mind? We'd love to hear from you. Reach out and let's start a conversation.</p>
+  <a href="mailto:baypointweb@gmail.com" class="contact-email">Baypointweb@gmail.com</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Bay Point. All rights reserved.</span>
+  <span>baypointweb.com</span>
+</footer>
+
+<script src="java/main.js"></script>
 </body>
 </html>
